@@ -1,14 +1,14 @@
 import { FirebaseProvider } from "./../../providers/firebase/firebase";
 import { Component } from "@angular/core";
 import { NavController } from "ionic-angular";
-import { FirebaseListObservable } from "angularfire2/database";
+import { AngularFireList } from "angularfire2/database";
 
 @Component({
   selector: "page-home",
   templateUrl: "home.html"
 })
 export class HomePage {
-  shoppingItems: FirebaseListObservable<any[]>;
+  shoppingItems;
   newItem = "";
 
   constructor(
@@ -23,6 +23,7 @@ export class HomePage {
   }
 
   removeItem(id) {
+    console.log(id);
     this.firebaseProvider.removeItem(id);
   }
 }

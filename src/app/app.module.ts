@@ -11,6 +11,7 @@ import { HttpModule } from "@angular/http";
 import { AngularFireDatabaseModule } from "angularfire2/database";
 import { AngularFireModule } from "angularfire2";
 import { FirebaseProvider } from "./../providers/firebase/firebase";
+import { AngularFireDatabase } from "angularfire2/database";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBlLiEXeRcMbW-azXNTkAh_TfC659HCQKU",
@@ -36,6 +37,7 @@ const firebaseConfig = {
     StatusBar,
     SplashScreen,
     FirebaseProvider,
+    AngularFireDatabase,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
