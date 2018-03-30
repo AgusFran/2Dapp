@@ -1,7 +1,6 @@
 import { FirebaseProvider } from "./../../providers/firebase/firebase";
 import { Component } from "@angular/core";
 import { NavController } from "ionic-angular";
-import { AngularFireList } from "angularfire2/database";
 
 @Component({
   selector: "page-home",
@@ -15,6 +14,7 @@ export class HomePage {
     public navCtrl: NavController,
     public firebaseProvider: FirebaseProvider
   ) {
+    this.firebaseProvider.getShoppingItems().subscribe(console.log);
     this.shoppingItems = this.firebaseProvider.getShoppingItems();
   }
 
@@ -23,7 +23,6 @@ export class HomePage {
   }
 
   removeItem(id) {
-    console.log(id);
     this.firebaseProvider.removeItem(id);
   }
 }
