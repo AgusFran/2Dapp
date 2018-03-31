@@ -6,6 +6,7 @@
 *.log
 *.tmp
 *.tmp.*
+*.orig
 log.txt
 *.sublime-project
 *.sublime-workspace
@@ -13,8 +14,8 @@ log.txt
 npm-debug.log*
 *.idea*
 *.iml*
-*target*
 
+target/
 .idea/
 .sourcemaps/
 .sass-cache/
