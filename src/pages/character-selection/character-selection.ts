@@ -23,4 +23,7 @@ export class CharacterSelectionPage {
     SessionProvider.setCurrentCharacterKey(key);
     this.navCtrl.push(HomePage);
   }
+  addCharacter() {
+    this.navCtrl.push(HomePage);
+  }
 }
