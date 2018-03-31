@@ -10,9 +10,9 @@ export class BaseProvider<T> {
   ) {}
 
   getAll() {
-    let users = this.angularFirebase.list(`/${this.service}/`);
+    let result = this.angularFirebase.list(`/${this.service}/`);
 
-    return users.snapshotChanges().map(changes =>
+    return result.snapshotChanges().map(changes =>
       changes.map(change => ({
         key: change.key,
         value: change.payload.val()

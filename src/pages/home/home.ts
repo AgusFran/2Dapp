@@ -2,6 +2,7 @@ import { UsersProvider } from "./../../providers/users/users";
 import { Component } from "@angular/core";
 import { NavController } from "ionic-angular";
 import { User } from "../../interfaces/user";
+import { SessionProvider } from "../../providers/session/session";
 
 @Component({
   selector: "page-home",
@@ -26,6 +27,8 @@ export class HomePage {
     let user = this.getUser();
     if (user && user.value.password == this.password) {
       console.log("logged");
+      SessionProvider.setCurrent(user.key);
+      console.log(SessionProvider.getCurrent());
     } else {
       console.log("failed");
     }

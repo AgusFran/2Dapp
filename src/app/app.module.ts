@@ -13,6 +13,7 @@ import { AngularFireModule } from "angularfire2";
 import { AngularFireDatabase } from "angularfire2/database";
 import { BaseProvider } from "../providers/base/base";
 import { UsersProvider } from "../providers/users/users";
+import { SessionProvider } from '../providers/session/session';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBlLiEXeRcMbW-azXNTkAh_TfC659HCQKU",
@@ -40,7 +41,8 @@ const firebaseConfig = {
     AngularFireDatabase,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     BaseProvider,
-    UsersProvider
+    UsersProvider,
+    SessionProvider
   ]
 })
 export class AppModule {}
