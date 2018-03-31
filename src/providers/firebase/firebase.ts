@@ -6,9 +6,13 @@ export class FirebaseProvider {
   constructor(public afd: AngularFireDatabase) {}
 
   getShoppingItems() {
-    let asd = this.afd.list("/users/");
-    console.log(asd);
-    return asd.valueChanges();
+    let users = this.afd.list("/users/");
+    return users.snapshotChanges().map(changes =>
+      changes.map(change => ({
+        key: change.key,
+        value: change.payload.val()
+      }))
+    );
   }
 
   addItem(name) {
