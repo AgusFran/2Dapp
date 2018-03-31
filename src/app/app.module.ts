@@ -30,7 +30,7 @@ const firebaseConfig = {
 };
 
 @NgModule({
-  declarations: [MyApp, HomePage, CharacterPage, CharacterSelectionPage],
+  declarations: [MyApp, HomePage, CharacterSelectionPage, CharacterPage],
   imports: [
     BrowserModule,
     HttpModule,
@@ -41,7 +41,7 @@ const firebaseConfig = {
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
-  entryComponents: [MyApp, HomePage, CharacterPage, CharacterSelectionPage],
+  entryComponents: [MyApp, HomePage, CharacterSelectionPage, CharacterPage],
   providers: [
     StatusBar,
     SplashScreen,

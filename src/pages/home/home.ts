@@ -6,7 +6,7 @@ import { SessionProvider } from "../../providers/session/session";
 import { CharacterSelectionPage } from "../character-selection/character-selection";
 import { CharacterPage } from "../character/character";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { Toast } from "../../interfaces/toast";
+import { Toast } from "../../classes/toast";
 
 @Component({
   selector: "page-home",
