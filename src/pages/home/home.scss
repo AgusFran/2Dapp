@@ -1,3 +1,29 @@
 page-home {
-
+  .login-card {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 350px;
+    height: 300px;
+    margin: auto;
+    text-align: center;
+  }
+  .card-md .item-md.item-block .item-inner {
+    border-bottom: 1px solid #dedede;
+  }
+  .form {
+    padding: 8px 24px 8px 8px;
+  }
+  .actions {
+    position: absolute;
+    bottom: 0;
+    padding: 8px 16px;
+    width: 100%;
+    button {
+      margin: 12px 0;
+      display: block;
+    }
+  }
 }

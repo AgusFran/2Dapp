@@ -1,27 +1,31 @@
-<ion-header>
-  <ion-navbar color="primary">
-    <ion-title>
-      Shopping List
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
 <ion-content>
-  <ion-row>
-    <ion-col col-9>
+  <ion-card class="login-card">
+    <div class="form">
       <ion-item>
-        <ion-input type="text" [(ngModel)]="newItem" placeholder="New Shopping item"></ion-input>
+        <ion-label floating>Usuario</ion-label>
+        <ion-input type="text" [(ngModel)]="username"></ion-input>
       </ion-item>
-    </ion-col>
-    <ion-col>
-      <button ion-button (click)="addItem()">Add!</button>
-    </ion-col>
-  </ion-row>
+      <ion-item>
+        <ion-label floating>Contraseña</ion-label>
+        <ion-input type="password" [(ngModel)]="password"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="registering">
+        <ion-label floating>Confirmar contraseña</ion-label>
+        <ion-input type="password" [(ngModel)]="confirmPassword"></ion-input>
+      </ion-item>
+    </div>
+    <div class="actions">
+      <button ion-button full round *ngIf="!registering" [disabled]="!username || !password" (click)="login()">Iniciar Sesion</button>
+      <button ion-button full round outline *ngIf="!registering" (click)="register()">Registrarse</button>
+      <button ion-button full round *ngIf="registering" [disabled]="!username || !password || password != confirmPassword" (click)="confirmRegistration()">Aceptar</button>
+    </div>
+  </ion-card>
+</ion-content>
 
-  <ion-list>
+<!-- <ion-list>
     <ion-item-sliding *ngFor="let item of shoppingItems | async">
       <ion-item>
-        {{ item.value }}
+        {{ item.value.email }} {{ item.value.pass }}
       </ion-item>
       <ion-item-options side="right">
         <button ion-button color="danger" icon-only (click)="removeItem(item.key)">
@@ -29,5 +33,4 @@
         </button>
       </ion-item-options>
     </ion-item-sliding>
-  </ion-list>
-</ion-content>
+  </ion-list> -->

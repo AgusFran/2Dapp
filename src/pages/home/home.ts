@@ -1,28 +1,63 @@
-import { FirebaseProvider } from "./../../providers/firebase/firebase";
+import { UsersProvider } from "./../../providers/users/users";
 import { Component } from "@angular/core";
 import { NavController } from "ionic-angular";
+import { User } from "../../interfaces/user";
 
 @Component({
   selector: "page-home",
   templateUrl: "home.html"
 })
 export class HomePage {
-  shoppingItems;
-  newItem = "";
+  private username: string;
+  private password: string;
+  private confirmPassword: string;
+  private registering: boolean;
+  private usernameExists: boolean;
+  private users;
 
   constructor(
     public navCtrl: NavController,
-    public firebaseProvider: FirebaseProvider
+    public usersProvider: UsersProvider
   ) {
-    this.firebaseProvider.getShoppingItems().subscribe(console.log);
-    this.shoppingItems = this.firebaseProvider.getShoppingItems();
+    this.usersProvider.getAll().subscribe(users => (this.users = users));
   }
 
-  addItem() {
-    this.firebaseProvider.addItem(this.newItem);
+  login() {
+    let user = this.getUser();
+    if (user && user.value.password == this.password) {
+      console.log("logged");
+    } else {
+      console.log("failed");
+    }
   }
 
-  removeItem(id) {
-    this.firebaseProvider.removeItem(id);
+  register() {
+    this.clear();
+    this.registering = true;
+  }
+
+  confirmRegistration() {
+    if (!this.getUser()) {
+      let user: User = new User(this.username, this.password);
+      this.usersProvider.addItem(user);
+      this.clear();
+    }
+  }
+
+  getUser() {
+    for (let user of this.users) {
+      if (user.value.username == this.username) {
+        return user;
+      }
+    }
+    return null;
+  }
+
+  clear() {
+    this.username = "";
+    this.password = "";
+    this.confirmPassword = "";
+    this.registering = false;
+    this.usernameExists = false;
   }
 }
