@@ -4,8 +4,8 @@ import { AngularFireDatabase } from "angularfire2/database";
 import { User } from "../../classes/user";
 
 @Injectable()
-export class UsersProvider extends BaseProvider<User> {
+export class ItemsProvider extends BaseProvider<User> {
   constructor(public angularFirebase: AngularFireDatabase) {
-    super("users", angularFirebase);
+    super("items", angularFirebase);
   }
 }

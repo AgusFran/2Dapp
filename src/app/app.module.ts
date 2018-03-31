@@ -6,6 +6,7 @@ import { StatusBar } from "@ionic-native/status-bar";
 
 import { MyApp } from "./app.component";
 import { HomePage } from "../pages/home/home";
+import { CharacterSelectionPage } from "../pages/character-selection/character-selection";
 
 import { HttpModule } from "@angular/http";
 import { AngularFireDatabaseModule } from "angularfire2/database";
@@ -13,7 +14,9 @@ import { AngularFireModule } from "angularfire2";
 import { AngularFireDatabase } from "angularfire2/database";
 import { BaseProvider } from "../providers/base/base";
 import { UsersProvider } from "../providers/users/users";
-import { SessionProvider } from '../providers/session/session';
+import { SessionProvider } from "../providers/session/session";
+import { ItemsProvider } from "../providers/items/items";
+import { CharactersProvider } from "../providers/characters/characters";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBlLiEXeRcMbW-azXNTkAh_TfC659HCQKU",
@@ -25,7 +28,7 @@ const firebaseConfig = {
 };
 
 @NgModule({
-  declarations: [MyApp, HomePage],
+  declarations: [MyApp, HomePage, CharacterSelectionPage],
   imports: [
     BrowserModule,
     HttpModule,
@@ -34,7 +37,7 @@ const firebaseConfig = {
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
-  entryComponents: [MyApp, HomePage],
+  entryComponents: [MyApp, HomePage, CharacterSelectionPage],
   providers: [
     StatusBar,
     SplashScreen,
@@ -42,7 +45,9 @@ const firebaseConfig = {
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     BaseProvider,
     UsersProvider,
-    SessionProvider
+    SessionProvider,
+    CharactersProvider,
+    ItemsProvider
   ]
 })
 export class AppModule {}

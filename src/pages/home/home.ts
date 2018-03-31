@@ -1,8 +1,9 @@
 import { UsersProvider } from "./../../providers/users/users";
 import { Component } from "@angular/core";
 import { NavController } from "ionic-angular";
-import { User } from "../../interfaces/user";
+import { User } from "../../classes/user";
 import { SessionProvider } from "../../providers/session/session";
+import { CharacterSelectionPage } from "../character-selection/character-selection";
 
 @Component({
   selector: "page-home",
@@ -29,6 +30,7 @@ export class HomePage {
       console.log("logged");
       SessionProvider.setCurrent(user.key);
       console.log(SessionProvider.getCurrent());
+      this.navCtrl.push(CharacterSelectionPage);
     } else {
       console.log("failed");
     }
