@@ -19,6 +19,9 @@ import { UsersProvider } from "../providers/users/users";
 import { SessionProvider } from "../providers/session/session";
 import { ItemsProvider } from "../providers/items/items";
 import { CharactersProvider } from "../providers/characters/characters";
+import { CharacterCreationComponent } from "../components/character-creation/character-creation";
+import { CharacterCreatorPage } from "../pages/character-creator/character-creator";
+import { ClassSelectionPage } from "../pages/class-selection/class-selection";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBlLiEXeRcMbW-azXNTkAh_TfC659HCQKU",
@@ -30,7 +33,15 @@ const firebaseConfig = {
 };
 
 @NgModule({
-  declarations: [MyApp, HomePage, CharacterSelectionPage, CharacterPage],
+  declarations: [
+    MyApp,
+    HomePage,
+    CharacterSelectionPage,
+    CharacterPage,
+    CharacterCreationComponent,
+    CharacterCreatorPage,
+    ClassSelectionPage
+  ],
   imports: [
     BrowserModule,
     HttpModule,
@@ -41,7 +52,15 @@ const firebaseConfig = {
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
-  entryComponents: [MyApp, HomePage, CharacterSelectionPage, CharacterPage],
+  entryComponents: [
+    MyApp,
+    HomePage,
+    CharacterSelectionPage,
+    CharacterPage,
+    CharacterCreationComponent,
+    CharacterCreatorPage,
+    ClassSelectionPage
+  ],
   providers: [
     StatusBar,
     SplashScreen,
