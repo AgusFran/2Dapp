@@ -1,4 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { ErrorHandler, NgModule } from "@angular/core";
 import { IonicApp, IonicErrorHandler, IonicModule } from "ionic-angular";
 import { SplashScreen } from "@ionic-native/splash-screen";
@@ -6,6 +7,7 @@ import { StatusBar } from "@ionic-native/status-bar";
 
 import { MyApp } from "./app.component";
 import { HomePage } from "../pages/home/home";
+import { CharacterPage } from "../pages/character/character";
 import { CharacterSelectionPage } from "../pages/character-selection/character-selection";
 
 import { HttpModule } from "@angular/http";
@@ -28,16 +30,18 @@ const firebaseConfig = {
 };
 
 @NgModule({
-  declarations: [MyApp, HomePage, CharacterSelectionPage],
+  declarations: [MyApp, HomePage, CharacterPage, CharacterSelectionPage],
   imports: [
     BrowserModule,
     HttpModule,
+    FormsModule,
+    ReactiveFormsModule,
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(firebaseConfig),
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
-  entryComponents: [MyApp, HomePage, CharacterSelectionPage],
+  entryComponents: [MyApp, HomePage, CharacterPage, CharacterSelectionPage],
   providers: [
     StatusBar,
     SplashScreen,

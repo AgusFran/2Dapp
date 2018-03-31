@@ -1,23 +1,25 @@
 <ion-content>
-  <ion-card class="login-card">
-    <div class="form">
+  <ion-card class="login-card" [ngClass]="{'register': registering }">
+    <span class="main-title">{{title}}</span>
+    <form class="form" [formGroup]="loginForm" (ngSubmit)="login()" id="loginForm">
       <ion-item>
         <ion-label floating>Usuario</ion-label>
-        <ion-input type="text" [(ngModel)]="username"></ion-input>
+        <ion-input type="text" [(ngModel)]="username" formControlName="username"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating>Contraseña</ion-label>
-        <ion-input type="password" [(ngModel)]="password"></ion-input>
+        <ion-input type="password" [(ngModel)]="password" formControlName="password"></ion-input>
       </ion-item>
       <ion-item *ngIf="registering">
         <ion-label floating>Confirmar contraseña</ion-label>
-        <ion-input type="password" [(ngModel)]="confirmPassword"></ion-input>
+        <ion-input type="password" [(ngModel)]="confirmPassword" formControlName="confirmPassword"></ion-input>
       </ion-item>
-    </div>
+    </form>
     <div class="actions">
-      <button ion-button full round *ngIf="!registering" [disabled]="!username || !password" (click)="login()">Iniciar Sesion</button>
+      <button ion-button full round *ngIf="!registering" [disabled]="!loginForm.valid" form="loginForm" type="submit">Iniciar Sesion</button>
       <button ion-button full round outline *ngIf="!registering" (click)="register()">Registrarse</button>
-      <button ion-button full round *ngIf="registering" [disabled]="!username || !password || password != confirmPassword" (click)="confirmRegistration()">Aceptar</button>
+      <button ion-button full round *ngIf="registering" [disabled]="!loginForm.valid || password != confirmPassword" (click)="confirmRegistration()">Aceptar</button>
+      <button ion-button full round outline *ngIf="registering" (click)="clear()">Cancelar</button>
     </div>
   </ion-card>
 </ion-content>

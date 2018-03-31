@@ -6,3 +6,17 @@
   border-right-width: 1px;
   border-left-width: 1px;
 }
+span.main-title {
+  font-size: 20px;
+  margin-top: 8px;
+  display: block;
+}
+.form {
+  padding: 8px 24px 8px 8px;
+  span.error {
+    display: block;
+    padding-left: 16px;
+    text-align: left;
+    color: red;
+  }
+}

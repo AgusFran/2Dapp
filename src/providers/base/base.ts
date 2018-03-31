@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
 import { AngularFireDatabase } from "angularfire2/database";
-import { User } from "../../classes/user";
 
 @Injectable()
 export class BaseProvider<T> {

@@ -6,15 +6,15 @@ page-home {
     left: 0;
     right: 0;
     width: 350px;
-    height: 300px;
+    height: 325px;
     margin: auto;
     text-align: center;
+    &.register {
+      height: 400px;
+    }
   }
   .card-md .item-md.item-block .item-inner {
     border-bottom: 1px solid #dedede;
-  }
-  .form {
-    padding: 8px 24px 8px 8px;
   }
   .actions {
     position: absolute;

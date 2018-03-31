@@ -1,68 +1,92 @@
 import { UsersProvider } from "./../../providers/users/users";
 import { Component } from "@angular/core";
-import { NavController } from "ionic-angular";
+import { NavController, ToastController } from "ionic-angular";
 import { User } from "../../classes/user";
 import { SessionProvider } from "../../providers/session/session";
 import { CharacterSelectionPage } from "../character-selection/character-selection";
+import { CharacterPage } from "../character/character";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { Toast } from "../../interfaces/toast";
 
 @Component({
   selector: "page-home",
   templateUrl: "home.html"
 })
 export class HomePage {
-  private username: string;
-  private password: string;
-  private confirmPassword: string;
+  private title: string = "Iniciar sesión";
+  private loginForm: FormGroup;
   private registering: boolean;
-  private usernameExists: boolean;
   private users;
 
   constructor(
     public navCtrl: NavController,
+    public toastCtrl: ToastController,
     public usersProvider: UsersProvider
   ) {
     this.usersProvider.getAll().subscribe(users => (this.users = users));
+
+    this.loginForm = new FormGroup({
+      username: new FormControl("", [
+        Validators.required,
+        Validators.pattern("^[a-zA-Z0-9 ]*$")
+      ]),
+      password: new FormControl("", [
+        Validators.required,
+        Validators.pattern("^[a-zA-Z0-9 ]*$")
+      ]),
+      confirmPassword: new FormControl("", [
+        Validators.pattern("^[a-zA-Z0-9 ]*$")
+      ])
+    });
   }
 
   login() {
     let user = this.getUser();
-    if (user && user.value.password == this.password) {
-      console.log("logged");
+    if (user && user.value.password == this.getControlValue("password")) {
       SessionProvider.setCurrent(user.key);
       console.log(SessionProvider.getCurrent());
       this.navCtrl.push(CharacterSelectionPage);
     } else {
-      console.log("failed");
+      Toast.show("Los datos ingresados no son correctos", this.toastCtrl);
     }
   }
 
   register() {
     this.clear();
+    this.title = "Registrarse";
     this.registering = true;
   }
 
   confirmRegistration() {
     if (!this.getUser()) {
-      let user: User = new User(this.username, this.password);
+      let user: User = new User(
+        this.getControlValue("username"),
+        this.getControlValue("password")
+      );
       this.usersProvider.addItem(user);
       this.clear();
+      Toast.show("Usuario creado correctamente", this.toastCtrl);
+    } else {
+      Toast.show("El usuario ya existe", this.toastCtrl);
     }
   }
 
   getUser() {
     for (let user of this.users) {
-      if (user.value.username == this.username) {
+      if (user.value.username == this.getControlValue("username")) {
         return user;
       }
     }
     return null;
   }
 
+  getControlValue(control: string) {
+    return this.loginForm.controls[control].value;
+  }
+
   clear() {
-    this.username = "";
-    this.password = "";
-    this.confirmPassword = "";
+    this.title = "Iniciar sesión";
+    this.loginForm.reset();
     this.registering = false;
-    this.usernameExists = false;
   }
 }
