@@ -20,8 +20,8 @@ import { SessionProvider } from "../providers/session/session";
 import { ItemsProvider } from "../providers/items/items";
 import { CharactersProvider } from "../providers/characters/characters";
 import { CharacterCreationComponent } from "../components/character-creation/character-creation";
-import { CharacterCreatorPage } from "../pages/character-creator/character-creator";
-import { ClassSelectionPage } from "../pages/class-selection/class-selection";
+import { CharacterCreatorPage } from "../components/character-creation/character-creator/character-creator";
+import { SkillsetSelectionPage } from "../components/character-creation/skillset-selection/skillset-selection";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBlLiEXeRcMbW-azXNTkAh_TfC659HCQKU",
@@ -40,7 +40,7 @@ const firebaseConfig = {
     CharacterPage,
     CharacterCreationComponent,
     CharacterCreatorPage,
-    ClassSelectionPage
+    SkillsetSelectionPage
   ],
   imports: [
     BrowserModule,
@@ -59,7 +59,7 @@ const firebaseConfig = {
     CharacterPage,
     CharacterCreationComponent,
     CharacterCreatorPage,
-    ClassSelectionPage
+    SkillsetSelectionPage
   ],
   providers: [
     StatusBar,

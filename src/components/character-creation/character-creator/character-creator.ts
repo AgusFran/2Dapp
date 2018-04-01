@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { NavController } from "ionic-angular";
-import { ClassSelectionPage } from "../class-selection/class-selection";
+import { SkillsetSelectionPage } from "../skillset-selection/skillset-selection";
 
 @Component({
   selector: "page-character-creator",
@@ -10,6 +10,6 @@ export class CharacterCreatorPage {
   constructor(public navCtrl: NavController) {}
 
   navigate() {
-    this.navCtrl.push(ClassSelectionPage);
+    this.navCtrl.push(SkillsetSelectionPage);
   }
 }

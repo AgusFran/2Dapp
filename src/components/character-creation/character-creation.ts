@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { CharacterCreatorPage } from "../../pages/character-creator/character-creator";
+import { CharacterCreatorPage } from "./character-creator/character-creator";
 import { ViewController } from "ionic-angular";
 
 @Component({

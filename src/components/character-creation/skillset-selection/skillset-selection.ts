@@ -3,8 +3,8 @@ import { NavController } from "ionic-angular";
 
 @Component({
   selector: "page-class-selection",
-  templateUrl: "class-selection.html"
+  templateUrl: "skillset-selection.html"
 })
-export class ClassSelectionPage {
+export class SkillsetSelectionPage {
   constructor(public navCtrl: NavController) {}
 }
