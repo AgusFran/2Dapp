@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { NavController, ToastController } from "ionic-angular";
-import { HomePage } from "../home/home";
+import { MatchPage } from "../match/match";
 import { MatchesProvider } from "../../providers/matches/matches";
 import { SessionProvider } from "../../providers/session/session";
 import { Match } from "../../classes/match";
@@ -26,7 +26,8 @@ export class MatchSelectionPage {
   }
   selectMatch(key: string) {
     SessionProvider.setCurrentMatchKey(key);
-    this.navCtrl.push(HomePage);
+    console.log(key);
+    this.navCtrl.push(MatchPage);
   }
   createMatch() {
     let alert = this.alertCtrl.create({
@@ -54,7 +55,7 @@ export class MatchSelectionPage {
                 SessionProvider.getCurrent()
               );
               this.matchesProvider.addItem(match);
-              Toast.show("Partida crada exitosamente", this.toastCtrl);
+              Toast.show("Partida creada exitosamente", this.toastCtrl);
             } else {
               Toast.show(
                 "Debe ingresar un nombre para la partida",

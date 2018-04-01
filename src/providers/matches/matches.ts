@@ -10,5 +10,8 @@ export class MatchesProvider extends BaseProvider<Match> {
     super(`matches`, angularFirebase);
   }
 
-  getAllCharacters() {}
+  getAllCharacters(): any {
+    let matchKey: string = SessionProvider.getCurrentMatchKey();
+    return super.get(`${matchKey}/characters`);
+  }
 }

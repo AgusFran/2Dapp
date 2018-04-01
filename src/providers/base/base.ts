@@ -8,15 +8,16 @@ export class BaseProvider<T> {
     public angularFirebase: AngularFireDatabase
   ) {}
 
+  get(key: string) {
+    let result = this.angularFirebase.list(`/${this.service}/${key}/`);
+
+    return this.getResult(result);
+  }
+
   getAll() {
     let result = this.angularFirebase.list(`/${this.service}/`);
 
-    return result.snapshotChanges().map(changes =>
-      changes.map(change => ({
-        key: change.key,
-        value: change.payload.val()
-      }))
-    );
+    return this.getResult(result);
   }
 
   addItem(item: T) {
@@ -25,5 +26,14 @@ export class BaseProvider<T> {
 
   removeItem(key: string) {
     this.angularFirebase.list(`/${this.service}/`).remove(key);
+  }
+
+  private getResult(result: any) {
+    return result.snapshotChanges().map(changes =>
+      changes.map(change => ({
+        key: change.key,
+        value: change.payload.val()
+      }))
+    );
   }
 }

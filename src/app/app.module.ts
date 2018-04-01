@@ -10,6 +10,7 @@ import { HomePage } from "../pages/home/home";
 import { CharacterPage } from "../pages/character/character";
 import { CharacterSelectionPage } from "../pages/character-selection/character-selection";
 import { MatchSelectionPage } from "../pages/match-selection/match-selection";
+import { MatchPage } from "../pages/match/match";
 
 import { HttpModule } from "@angular/http";
 import { AngularFireDatabaseModule } from "angularfire2/database";
@@ -37,7 +38,8 @@ const firebaseConfig = {
     HomePage,
     CharacterSelectionPage,
     CharacterPage,
-    MatchSelectionPage
+    MatchSelectionPage,
+    MatchPage
   ],
   imports: [
     BrowserModule,
@@ -54,7 +56,8 @@ const firebaseConfig = {
     HomePage,
     CharacterSelectionPage,
     CharacterPage,
-    MatchSelectionPage
+    MatchSelectionPage,
+    MatchPage
   ],
   providers: [
     StatusBar,
