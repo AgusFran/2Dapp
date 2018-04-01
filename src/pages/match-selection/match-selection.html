@@ -1,0 +1,19 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Match-Selection</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let match of matches" (click)="selectMatch(match.key)"> {{match.value.name}}
+      <span float-right text-sm color="#EEEEEE">Jugadores: {{match.value.characters? match.value.characters.length:0}}</span>
+    </ion-item>
+    <ion-item (click)=createMatch()>
+      <button ion-button padding round>Nueva partida!</button>
+    </ion-item>
+  </ion-list>
+</ion-content>

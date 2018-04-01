@@ -4,6 +4,7 @@ import { NavController, ToastController } from "ionic-angular";
 import { User } from "../../classes/user";
 import { SessionProvider } from "../../providers/session/session";
 import { CharacterSelectionPage } from "../character-selection/character-selection";
+import { MatchSelectionPage } from "../match-selection/match-selection";
 import { CharacterPage } from "../character/character";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Toast } from "../../classes/toast";
@@ -45,7 +46,7 @@ export class HomePage {
     if (user && user.value.password == this.getControlValue("password")) {
       SessionProvider.setCurrent(user.key);
       console.log(SessionProvider.getCurrent());
-      this.navCtrl.push(CharacterSelectionPage);
+      this.navCtrl.push(MatchSelectionPage);
     } else {
       Toast.show("Los datos ingresados no son correctos", this.toastCtrl);
     }

@@ -4,6 +4,7 @@ import { Injectable } from "@angular/core";
 export class SessionProvider {
   private static userKey: string;
   private static currentCharacterKey: string;
+  private static currentMatchKey: string;
 
   constructor() {}
 
@@ -20,5 +21,12 @@ export class SessionProvider {
   }
   static getCurrentCharacterKey() {
     return this.currentCharacterKey;
+  }
+
+  static setCurrentMatchKey(currentMatchKey) {
+    this.currentMatchKey = currentMatchKey;
+  }
+  static getCurrentMatchKey() {
+    return this.currentMatchKey;
   }
 }
