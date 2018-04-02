@@ -9,6 +9,9 @@ import { MyApp } from "./app.component";
 import { HomePage } from "../pages/home/home";
 import { CharacterPage } from "../pages/character/character";
 import { CharacterSelectionPage } from "../pages/character-selection/character-selection";
+import { MatchSelectionPage } from "../pages/match-selection/match-selection";
+import { MatchPage } from "../pages/match/match";
+import { MainPage } from "../pages/main/main";
 
 import { HttpModule } from "@angular/http";
 import { AngularFireDatabaseModule } from "angularfire2/database";
@@ -19,6 +22,7 @@ import { UsersProvider } from "../providers/users/users";
 import { SessionProvider } from "../providers/session/session";
 import { ItemsProvider } from "../providers/items/items";
 import { CharactersProvider } from "../providers/characters/characters";
+import { MatchesProvider } from "../providers/matches/matches";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBlLiEXeRcMbW-azXNTkAh_TfC659HCQKU",
@@ -30,7 +34,14 @@ const firebaseConfig = {
 };
 
 @NgModule({
-  declarations: [MyApp, HomePage, CharacterSelectionPage, CharacterPage],
+  declarations: [
+    MyApp,
+    HomePage,
+    CharacterSelectionPage,
+    CharacterPage,
+    MatchPage,
+    MainPage
+  ],
   imports: [
     BrowserModule,
     HttpModule,
@@ -41,7 +52,14 @@ const firebaseConfig = {
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
-  entryComponents: [MyApp, HomePage, CharacterSelectionPage, CharacterPage],
+  entryComponents: [
+    MyApp,
+    HomePage,
+    CharacterSelectionPage,
+    CharacterPage,
+    MatchPage,
+    MainPage
+  ],
   providers: [
     StatusBar,
     SplashScreen,
@@ -51,7 +69,8 @@ const firebaseConfig = {
     UsersProvider,
     SessionProvider,
     CharactersProvider,
-    ItemsProvider
+    ItemsProvider,
+    MatchesProvider
   ]
 })
 export class AppModule {}

@@ -1,0 +1,14 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Menú Principal</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card padding>
+    <button ion-button class="button-redirect" round *ngFor="let page of getPages()" (click)="redirect(page.url)">{{page.name}}</button>
+  </ion-card>
+</ion-content>
