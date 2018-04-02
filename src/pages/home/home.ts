@@ -5,7 +5,6 @@ import { User } from "../../classes/user";
 import { SessionProvider } from "../../providers/session/session";
 import { CharacterSelectionPage } from "../character-selection/character-selection";
 import { MainPage } from "../main/main";
-import { CharacterPage } from "../character/character";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Toast } from "../../classes/toast";
 
@@ -32,8 +31,7 @@ export class HomePage {
   login() {
     let user = this.getUser();
     if (user && user.value.password == this.getControlValue("password")) {
-      SessionProvider.setCurrent(user.key);
-      console.log(SessionProvider.getCurrent());
+      SessionProvider.setCurrentUserKey(user.key);
       this.navCtrl.push(MainPage);
     } else {
       Toast.show("Los datos ingresados no son correctos", this.toastCtrl);

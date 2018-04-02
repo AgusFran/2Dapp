@@ -1,3 +1,9 @@
+.scroll-content {
+  overflow-y: auto;
+}
+.item-md button.item-button {
+  height: inherit;
+}
 .button-md {
   height: 48px;
 }

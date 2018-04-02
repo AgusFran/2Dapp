@@ -1,8 +1,9 @@
 import { Component } from "@angular/core";
-import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { NavController, ModalController } from "ionic-angular";
 import { HomePage } from "../home/home";
 import { CharactersProvider } from "../../providers/characters/characters";
 import { SessionProvider } from "../../providers/session/session";
+import { CharacterCreationComponent } from "../../components/character-creation/character-creation";
 
 @Component({
   selector: "page-character-selection",
@@ -13,17 +14,21 @@ export class CharacterSelectionPage {
 
   constructor(
     public navCtrl: NavController,
+    public modalCtrl: ModalController,
     public charactersProvider: CharactersProvider
   ) {
     this.charactersProvider
       .getAll()
       .subscribe(characters => (this.characters = characters));
   }
+
   selectCharacter(key: string) {
     SessionProvider.setCurrentCharacterKey(key);
     this.navCtrl.push(HomePage);
   }
+
   addCharacter() {
-    this.navCtrl.push(HomePage);
+    let modal = this.modalCtrl.create(CharacterCreationComponent);
+    modal.present();
   }
 }
