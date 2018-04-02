@@ -1,5 +1,4 @@
 export class Item {
-  private key: string;
   private name: string;
   private description: string;
 

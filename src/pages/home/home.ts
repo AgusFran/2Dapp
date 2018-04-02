@@ -4,7 +4,7 @@ import { NavController, ToastController } from "ionic-angular";
 import { User } from "../../classes/user";
 import { SessionProvider } from "../../providers/session/session";
 import { CharacterSelectionPage } from "../character-selection/character-selection";
-import { MatchSelectionPage } from "../match-selection/match-selection";
+import { MainPage } from "../main/main";
 import { CharacterPage } from "../character/character";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Toast } from "../../classes/toast";
@@ -19,25 +19,13 @@ export class HomePage {
   private registering: boolean;
   private users;
 
-  constructor(
-    public navCtrl: NavController,
-    public toastCtrl: ToastController,
-    public usersProvider: UsersProvider
-  ) {
+  constructor(public navCtrl: NavController, public toastCtrl: ToastController, public usersProvider: UsersProvider) {
     this.usersProvider.getAll().subscribe(users => (this.users = users));
 
     this.loginForm = new FormGroup({
-      username: new FormControl("", [
-        Validators.required,
-        Validators.pattern("^[a-zA-Z0-9 ]*$")
-      ]),
-      password: new FormControl("", [
-        Validators.required,
-        Validators.pattern("^[a-zA-Z0-9 ]*$")
-      ]),
-      confirmPassword: new FormControl("", [
-        Validators.pattern("^[a-zA-Z0-9 ]*$")
-      ])
+      username: new FormControl("", [Validators.required, Validators.pattern("^[a-zA-Z0-9 ]*$")]),
+      password: new FormControl("", [Validators.required, Validators.pattern("^[a-zA-Z0-9 ]*$")]),
+      confirmPassword: new FormControl("", [Validators.pattern("^[a-zA-Z0-9 ]*$")])
     });
   }
 
@@ -46,7 +34,7 @@ export class HomePage {
     if (user && user.value.password == this.getControlValue("password")) {
       SessionProvider.setCurrent(user.key);
       console.log(SessionProvider.getCurrent());
-      this.navCtrl.push(MatchSelectionPage);
+      this.navCtrl.push(MainPage);
     } else {
       Toast.show("Los datos ingresados no son correctos", this.toastCtrl);
     }
@@ -60,10 +48,7 @@ export class HomePage {
 
   confirmRegistration() {
     if (!this.getUser()) {
-      let user: User = new User(
-        this.getControlValue("username"),
-        this.getControlValue("password")
-      );
+      let user: User = new User(this.getControlValue("username"), this.getControlValue("password"));
       this.usersProvider.addItem(user);
       this.clear();
       Toast.show("Usuario creado correctamente", this.toastCtrl);

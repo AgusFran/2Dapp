@@ -1,0 +1,14 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>main</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <button ion-button full *ngFor="let page of getPages()" (click)="redirect(page)">{{page}}</button>
+  <button ion-button full (click)="redirect('MatchSelectionPage')"></button>
+</ion-content>
