@@ -6,7 +6,17 @@ import { IonicPage, NavController, NavParams } from "ionic-angular";
   templateUrl: "main.html"
 })
 export class MainPage {
-  pagesNames: string[] = ["HomePage", "ItemsPage"];
+  pagesNames: any[] = [
+    // tipo Page?
+    {
+      url: "MatchSelectionPage",
+      name: "Selección de Partida"
+    },
+    {
+      url: "ItemsPage",
+      name: "Items"
+    }
+  ];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
