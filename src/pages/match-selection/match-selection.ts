@@ -50,7 +50,7 @@ export class MatchSelectionPage {
           text: "Crear",
           handler: data => {
             if (data.name) {
-              let match: Match = new Match(data.name, SessionProvider.getCurrent());
+              let match: Match = new Match(data.name, SessionProvider.getCurrentUserKey());
               this.matchesProvider.addItem(match);
               Toast.show("Partida creada exitosamente", this.toastCtrl);
             } else {

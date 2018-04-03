@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { CharacterSelectionPage } from "../character-selection/character-selection";
 
 @Component({
   selector: "page-main",
@@ -15,6 +16,10 @@ export class MainPage {
     {
       url: "ItemsPage",
       name: "Items"
+    },
+    {
+      url: CharacterSelectionPage,
+      name: "Personajes"
     }
   ];
 
