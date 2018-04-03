@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { NavController, ToastController } from "ionic-angular";
+import { NavController, NavParams, ToastController } from "ionic-angular";
 import { MatchesProvider } from "../../providers/matches/matches";
 import { SessionProvider } from "../../providers/session/session";
 import { Match } from "../../classes/match";
@@ -7,6 +7,7 @@ import { Character } from "../../classes/character";
 import { Toast } from "../../classes/toast";
 
 import { MatchSelectionPage } from "../match-selection/match-selection";
+import { CharacterSelectionPage } from "../character-selection/character-selection";
 
 @Component({
   selector: "page-match",
@@ -18,17 +19,16 @@ export class MatchPage {
 
   constructor(
     public navCtrl: NavController,
+    public navParams: NavParams,
     public toastCtrl: ToastController,
     public matchesProvider: MatchesProvider
   ) {
-    this.matchesProvider
-      .getAllCharacters()
-      .subscribe(characters => (this.characters = characters));
+    this.matchesProvider.getAllCharacters().subscribe(characters => (this.characters = characters));
   }
   selectCharacter() {
     console.log("redirect to personajes page");
-
-    this.navCtrl.push(MatchSelectionPage); //pasar por parámetro la key del character que está viendo
+    this.navParams.data.root = this;
+    this.navCtrl.push(CharacterSelectionPage);
   }
 
   viewCharacter(characterKey: string) {}
