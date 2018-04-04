@@ -57,7 +57,7 @@ export class HomePage {
 
   getUser() {
     for (let user of this.users) {
-      if (user.value.username == this.getControlValue("username")) {
+      if (user.value.username.toLowerCase() == this.getControlValue("username").toLowerCase()) {
         return user;
       }
     }

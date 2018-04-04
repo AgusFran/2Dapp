@@ -27,6 +27,7 @@ import { MatchesProvider } from "../providers/matches/matches";
 import { CharacterCreationComponent } from "../components/character-creation/character-creation";
 import { CharacterCreatorPage } from "../components/character-creation/character-creator/character-creator";
 import { SkillsetSelectionPage } from "../components/character-creation/skillset-selection/skillset-selection";
+import { BrowseComponent } from "../components/browse/browse";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBlLiEXeRcMbW-azXNTkAh_TfC659HCQKU",
@@ -49,7 +50,8 @@ const firebaseConfig = {
     MainPage,
     CharacterCreationComponent,
     CharacterCreatorPage,
-    SkillsetSelectionPage
+    SkillsetSelectionPage,
+    BrowseComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +74,8 @@ const firebaseConfig = {
     MainPage,
     CharacterCreationComponent,
     CharacterCreatorPage,
-    SkillsetSelectionPage
+    SkillsetSelectionPage,
+    BrowseComponent
   ],
   providers: [
     StatusBar,
