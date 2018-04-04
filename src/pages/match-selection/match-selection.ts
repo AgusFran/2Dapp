@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { NgModule } from "@angular/core";
-import { NavController, ToastController, IonicPageModule, IonicPage } from "ionic-angular";
+import { NavController, ToastController, IonicPage } from "ionic-angular";
 import { MatchPage } from "../match/match";
 import { MatchesProvider } from "../../providers/matches/matches";
 import { SessionProvider } from "../../providers/session/session";
@@ -8,7 +8,6 @@ import { Match } from "../../classes/match";
 import { AlertController } from "ionic-angular";
 import { Toast } from "../../classes/toast";
 
-@IonicPage()
 @Component({
   selector: "page-match-selection",
   templateUrl: "match-selection.html"

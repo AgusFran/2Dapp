@@ -1,6 +1,8 @@
 import { Component } from "@angular/core";
-import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { IonicPage, NavController } from "ionic-angular";
 import { CharacterSelectionPage } from "../character-selection/character-selection";
+import { MatchSelectionPage } from "../match-selection/match-selection";
+import { ItemsPage } from "../items/items";
 
 @Component({
   selector: "page-main",
@@ -10,11 +12,11 @@ export class MainPage {
   pagesNames: any[] = [
     // tipo Page?
     {
-      url: "MatchSelectionPage",
+      url: MatchSelectionPage,
       name: "Selección de Partida"
     },
     {
-      url: "ItemsPage",
+      url: ItemsPage,
       name: "Items"
     },
     {
@@ -23,7 +25,7 @@ export class MainPage {
     }
   ];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController) {}
 
   getPages() {
     return this.pagesNames;

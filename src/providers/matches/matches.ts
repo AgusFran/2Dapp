@@ -14,4 +14,8 @@ export class MatchesProvider extends BaseProvider<Match> {
     let matchKey: string = SessionProvider.getCurrentMatchKey();
     return super.get(`${matchKey}/characters`);
   }
+  addCharacter(data) {
+    let matchKey: string = SessionProvider.getCurrentMatchKey();
+    this.angularFirebase.list(`/${this.service}/${matchKey}/characters/`).push(data);
+  }
 }

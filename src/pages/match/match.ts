@@ -26,13 +26,12 @@ export class MatchPage {
     this.matchesProvider.getAllCharacters().subscribe(characters => (this.characters = characters));
   }
   selectCharacter() {
-    console.log("redirect to personajes page");
-    this.navParams.data.root = this;
     this.navCtrl.push(CharacterSelectionPage);
   }
 
   viewCharacter(characterKey: string) {}
   hasCharacterSelected() {
+    console.log(SessionProvider.getCurrentCharacterKey());
     return SessionProvider.getCurrentCharacterKey();
   }
 }
