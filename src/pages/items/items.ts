@@ -4,7 +4,6 @@ import { ItemsProvider } from "../../providers/items/items";
 import { Item } from "../../classes/items";
 import { Toast } from "../../classes/toast";
 
-@IonicPage()
 @Component({
   selector: "page-items",
   templateUrl: "items.html"

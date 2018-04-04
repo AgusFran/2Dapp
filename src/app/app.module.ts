@@ -12,6 +12,7 @@ import { CharacterSelectionPage } from "../pages/character-selection/character-s
 import { MatchSelectionPage } from "../pages/match-selection/match-selection";
 import { MatchPage } from "../pages/match/match";
 import { MainPage } from "../pages/main/main";
+import { ItemsPage } from "../pages/items/items";
 
 import { HttpModule } from "@angular/http";
 import { AngularFireDatabaseModule } from "angularfire2/database";
@@ -44,6 +45,8 @@ const firebaseConfig = {
     CharacterSelectionPage,
     CharacterPage,
     MatchPage,
+    MatchSelectionPage,
+    ItemsPage,
     MainPage,
     CharacterCreationComponent,
     CharacterCreatorPage,
@@ -66,6 +69,8 @@ const firebaseConfig = {
     CharacterSelectionPage,
     CharacterPage,
     MatchPage,
+    MatchSelectionPage,
+    ItemsPage,
     MainPage,
     CharacterCreationComponent,
     CharacterCreatorPage,
