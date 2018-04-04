@@ -1,12 +1,10 @@
 import { Injectable } from "@angular/core";
 import { AngularFireDatabase } from "angularfire2/database";
+import { Provider } from "../../classes/provider";
 
 @Injectable()
-export class BaseProvider<T> {
-  constructor(
-    public service: string,
-    public angularFirebase: AngularFireDatabase
-  ) {}
+export class BaseProvider<T> implements Provider {
+  constructor(public service: string, public angularFirebase: AngularFireDatabase) {}
 
   get(key: string) {
     let result = this.angularFirebase.list(`/${this.service}/${key}/`);
