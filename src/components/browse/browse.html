@@ -6,7 +6,7 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item *ngFor="let element of elements" (click)="select(element.key)">
+    <ion-item *ngFor="let element of elements" (click)="select(element)">
       <div *ngFor="let label of getLabels(element)">
         <span>{{label}}</span>
       </div>

@@ -12,7 +12,7 @@ export class BrowseComponent implements OnInit {
   @Input("provider") provider: Provider;
   @Input("onAdd") callbackAdd;
 
-  @Output() onSelect: EventEmitter<string> = new EventEmitter();
+  @Output() onSelect: EventEmitter<any> = new EventEmitter();
 
   private elements = [];
 
@@ -22,8 +22,8 @@ export class BrowseComponent implements OnInit {
     this.provider.getAll().subscribe(elements => (this.elements = elements));
   }
 
-  select(key: string) {
-    this.onSelect.emit(key);
+  select(element) {
+    this.onSelect.emit(element);
   }
 
   add() {
