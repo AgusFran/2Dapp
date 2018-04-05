@@ -21,7 +21,9 @@ export class MatchSelectionPage {
     public toastCtrl: ToastController,
     public matchesProvider: MatchesProvider
   ) {
-    this.matchesProvider.getAll().subscribe(matches => (this.matches = matches));
+    this.matchesProvider.getAll().subscribe(matches => {
+      this.matches = matches;
+    });
   }
   selectMatch(key: string) {
     SessionProvider.setCurrentMatchKey(key);

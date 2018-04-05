@@ -13,6 +13,7 @@ import { CharacterCreationComponent } from "../../components/character-creation/
   templateUrl: "character-selection.html"
 })
 export class CharacterSelectionPage extends CharactersPage {
+  private data: any;
   constructor(
     public navCtrl: NavController,
     public modalCtrl: ModalController,
@@ -20,12 +21,20 @@ export class CharacterSelectionPage extends CharactersPage {
     public navParams: NavParams,
     public matchesProvider: MatchesProvider
   ) {
-    super(navCtrl, modalCtrl, charactersProvider, navParams);
+    super(navCtrl, modalCtrl, charactersProvider);
   }
   //Override
   selectCharacter(data: any) {
-    this.matchesProvider.addCharacter(data.value);
-    SessionProvider.setCurrentCharacterKey(data.key);
+    this.data = {
+      key: data.key,
+      value: {
+        name: data.value,
+        userkey: SessionProvider.getCurrentUserKey
+      }
+    };
+    this.matchesProvider.addCharacter(this.data.value);
+    console.log(data);
+    SessionProvider.setCurrentCharacterKey(this.data.key);
     this.navCtrl.pop();
   }
 }

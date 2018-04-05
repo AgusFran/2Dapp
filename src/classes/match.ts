@@ -15,4 +15,7 @@ export class Match {
   addCharacter(character: Character) {
     this.characters.push(character);
   }
+  getDM() {
+    return this.dm;
+  }
 }

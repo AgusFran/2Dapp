@@ -16,8 +16,7 @@ export class CharactersPage {
   constructor(
     public navCtrl: NavController,
     public modalCtrl: ModalController,
-    public charactersProvider: CharactersProvider,
-    public navParams: NavParams
+    public charactersProvider: CharactersProvider
   ) {
     this.charactersProvider.getAll().subscribe(characters => (this.characters = characters));
   }
