@@ -41,7 +41,7 @@ export class MatchSelectionPage {
       ],
       buttons: [
         {
-          text: "Cancer",
+          text: "Cancel",
           role: "cancel",
           handler: data => {
             console.log("Cancel clicked");

@@ -28,8 +28,8 @@ export class CharacterSelectionPage extends CharactersPage {
     this.data = {
       key: data.key,
       value: {
-        name: data.value,
-        userkey: SessionProvider.getCurrentUserKey
+        name: data.value.name,
+        userkey: SessionProvider.getCurrentUserKey()
       }
     };
     this.matchesProvider.addCharacter(this.data.value);
