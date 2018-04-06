@@ -4,15 +4,15 @@
     <form class="form" [formGroup]="loginForm" (ngSubmit)="login()" id="loginForm">
       <ion-item>
         <ion-label floating>Usuario</ion-label>
-        <ion-input type="text" [(ngModel)]="username" formControlName="username"></ion-input>
+        <ion-input type="text" formControlName="username"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating>Contraseña</ion-label>
-        <ion-input type="password" [(ngModel)]="password" formControlName="password"></ion-input>
+        <ion-input type="password" formControlName="password"></ion-input>
       </ion-item>
       <ion-item *ngIf="registering">
         <ion-label floating>Confirmar contraseña</ion-label>
-        <ion-input type="password" [(ngModel)]="confirmPassword" formControlName="confirmPassword"></ion-input>
+        <ion-input type="password" formControlName="confirmPassword"></ion-input>
       </ion-item>
     </form>
     <div class="actions">
