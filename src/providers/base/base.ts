@@ -6,10 +6,21 @@ import { Provider } from "../../classes/provider";
 export class BaseProvider<T> implements Provider {
   constructor(public service: string, public angularFirebase: AngularFireDatabase) {}
 
-  get(key: string) {
+  getSinDown(key: string) {
     let result = this.angularFirebase.list(`/${this.service}/${key}/`);
 
     return this.getResult(result);
+  }
+
+  get(key: string) {
+    let result = this.angularFirebase.list(`/${this.service}/${key}/`);
+
+    return this.getResult(result).map(data => {
+      return (<any[]>data).reduce((obj, item) => {
+        obj[item.key] = item;
+        return obj;
+      }, {});
+    });
   }
 
   getAll() {

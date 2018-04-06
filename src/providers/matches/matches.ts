@@ -10,12 +10,13 @@ export class MatchesProvider extends BaseProvider<Match> {
     super(`matches`, angularFirebase);
   }
 
+  getCurrentMatch() {
+    return super.get(`${SessionProvider.getCurrentMatchKey()}`);
+  }
   getAllCharacters(): any {
-    let matchKey: string = SessionProvider.getCurrentMatchKey();
-    return super.get(`${matchKey}/characters`);
+    return super.getSinDown(`${SessionProvider.getCurrentMatchKey()}/characters`);
   }
   addCharacter(data) {
-    let matchKey: string = SessionProvider.getCurrentMatchKey();
-    this.angularFirebase.list(`/${this.service}/${matchKey}/characters/`).push(data);
+    this.angularFirebase.list(`/${this.service}/${SessionProvider.getCurrentMatchKey()}/characters/`).push(data);
   }
 }

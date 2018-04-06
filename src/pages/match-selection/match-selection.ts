@@ -21,7 +21,9 @@ export class MatchSelectionPage {
     public toastCtrl: ToastController,
     public matchesProvider: MatchesProvider
   ) {
-    this.matchesProvider.getAll().subscribe(matches => (this.matches = matches));
+    this.matchesProvider.getAll().subscribe(matches => {
+      this.matches = matches;
+    });
   }
   selectMatch(key: string) {
     SessionProvider.setCurrentMatchKey(key);
@@ -39,7 +41,7 @@ export class MatchSelectionPage {
       ],
       buttons: [
         {
-          text: "Cancer",
+          text: "Cancel",
           role: "cancel",
           handler: data => {
             console.log("Cancel clicked");

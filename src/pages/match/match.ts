@@ -15,7 +15,7 @@ import { CharacterSelectionPage } from "../character-selection/character-selecti
 })
 export class MatchPage {
   private match: Match;
-  private characters: Character[];
+  private hasCharacter: boolean = false;
 
   constructor(
     public navCtrl: NavController,
@@ -23,15 +23,31 @@ export class MatchPage {
     public toastCtrl: ToastController,
     public matchesProvider: MatchesProvider
   ) {
-    this.matchesProvider.getAllCharacters().subscribe(characters => (this.characters = characters));
+    this.match = new Match("", "");
+    this.matchesProvider.getCurrentMatch().subscribe(match => {
+      this.match = Match.newMatch(match);
+      console.log(this.match);
+
+      this.hasCharacterSelected();
+    });
   }
   selectCharacter() {
     this.navCtrl.push(CharacterSelectionPage);
   }
 
   viewCharacter(characterKey: string) {}
+
   hasCharacterSelected() {
-    console.log(SessionProvider.getCurrentCharacterKey());
-    return SessionProvider.getCurrentCharacterKey();
+    let flag: boolean = false;
+    if (SessionProvider.getCurrentCharacterKey() || this.match.dm == SessionProvider.getCurrentUserKey()) {
+      flag = true;
+    } else {
+      this.match.characters.forEach(character => {
+        if (character.value.userkey == SessionProvider.getCurrentUserKey()) {
+          flag = true;
+        }
+      });
+    }
+    this.hasCharacter = flag;
   }
 }
