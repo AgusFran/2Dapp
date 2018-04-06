@@ -18,13 +18,15 @@ export class HomePage {
   private registering: boolean;
   private users;
 
+  private textPattern = "^[a-zA-Z0-9 ]*$";
+
   constructor(public navCtrl: NavController, public toastCtrl: ToastController, public usersProvider: UsersProvider) {
     this.usersProvider.getAll().subscribe(users => (this.users = users));
 
     this.loginForm = new FormGroup({
-      username: new FormControl("", [Validators.required, Validators.pattern("^[a-zA-Z0-9 ]*$")]),
-      password: new FormControl("", [Validators.required, Validators.pattern("^[a-zA-Z0-9 ]*$")]),
-      confirmPassword: new FormControl("", [Validators.pattern("^[a-zA-Z0-9 ]*$")])
+      username: new FormControl("", [Validators.required, Validators.pattern(this.textPattern)]),
+      password: new FormControl("", [Validators.required, Validators.pattern(this.textPattern)]),
+      confirmPassword: new FormControl("", [Validators.pattern(this.textPattern)])
     });
   }
 

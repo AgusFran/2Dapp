@@ -25,4 +25,24 @@ span.main-title {
     text-align: left;
     color: red;
   }
+  ion-item.selector {
+    cursor: pointer;
+    display: inline-block;
+    padding-right: 8px;
+    width: calc(100% - 44px);
+    + button[ion-fab] {
+      display: inline-block;
+      vertical-align: bottom;
+      box-shadow: none;
+      margin: 8px 0;
+    }
+    * {
+      cursor: pointer;
+    }
+  }
+  ion-item.item-input-disabled .item-inner {
+    border-bottom: 1px solid #dedede !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+  }
 }

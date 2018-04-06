@@ -1,3 +1,40 @@
-<div>
-    <button ion-button (click)="navigate()">Navegar</button>
+<div class="character-form">
+    <form class="form" text-center [formGroup]="characterForm" (ngSubmit)="submit()" id="characterForm">
+        <ion-item>
+            <ion-label floating>Nombre</ion-label>
+            <ion-input type="text" formControlName="name"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Género</ion-label>
+            <ion-input type="text" formControlName="genre"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Deidad</ion-label>
+            <ion-input type="text" formControlName="deity"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Alineamiento</ion-label>
+            <ion-input type="text" formControlName="alignment"></ion-input>
+        </ion-item>
+        <ion-item class="selector" (click)="raceSelection()">
+            <ion-label floating>Raza</ion-label>
+            <ion-input disabled type="text" formControlName="race"></ion-input>
+        </ion-item>
+        <button ion-fab mini (click)="raceSelection()">
+            <ion-icon name="ios-arrow-forward"></ion-icon>
+        </button>
+        <ion-item class="selector" (click)="skillsetSelection()">
+            <ion-label floating>Clase</ion-label>
+            <ion-input disabled type="text" formControlName="skillset"></ion-input>
+        </ion-item>
+        <button ion-fab mini (click)="skillsetSelection()">
+            <ion-icon name="ios-arrow-forward"></ion-icon>
+        </button>
+        <button class="btn-stats" ion-button round (click)="statsConfig()">Modificar stats</button>
+        <ion-fab bottom right>
+            <button ion-fab [disabled]="!characterForm.valid" type="submit">
+                <ion-icon name="md-checkmark"></ion-icon>
+            </button>
+        </ion-fab>
+    </form>
 </div>

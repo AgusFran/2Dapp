@@ -7,9 +7,6 @@ import { SessionProvider } from "../session/session";
 @Injectable()
 export class CharactersProvider extends BaseProvider<Character> {
   constructor(public angularFirebase: AngularFireDatabase) {
-    super(
-      `users/${SessionProvider.getCurrentUserKey()}/characters`,
-      angularFirebase
-    );
+    super(`users/${SessionProvider.getCurrentUserKey()}/characters`, angularFirebase);
   }
 }
