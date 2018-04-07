@@ -6,14 +6,14 @@
       <div class="lists-container">
         <ion-list class="left-side">
           <ion-item *ngFor="let character of characters">
-            <ion-checkbox (ionChange)="addCharacterSelected()" type="checkbox" name="{{character.key}}" id="">
+            <ion-checkbox (ionChange)="addCharacterSelected()" type="checkbox" id="">
               {{character.value.name}}
             </ion-checkbox>
           </ion-item>
         </ion-list>
         <ion-list class="right-side">
           <ion-item *ngFor="let item of items">
-            <ion-checkbox (ionChange)="addItemSelected()" type="checkbox" name="{{item.key}}" id="">
+            <ion-checkbox (ionChange)="addItemSelected()" type="checkbox" id="">
               {{item.value.name}}
             </ion-checkbox>
           </ion-item>

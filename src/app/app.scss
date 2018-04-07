@@ -1,3 +1,6 @@
+textarea {
+  resize: none;
+}
 .scroll-content {
   overflow-y: auto;
 }
@@ -18,7 +21,10 @@ span.main-title {
   display: block;
 }
 .form {
-  padding: 8px 24px 8px 8px;
+  padding: 8px 24px 8px 16px;
+  &.login {
+    padding: 8px 24px 8px 8px;
+  }
   span.error {
     display: block;
     padding-left: 16px;
@@ -45,4 +51,16 @@ span.main-title {
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
   }
+}
+ion-fab[bottom] {
+  bottom: 16px;
+}
+ion-fab[right] {
+  right: 16px;
+}
+ion-fab[left] {
+  left: 16px;
+}
+.scroll-content {
+  padding-top: 56px !important;
 }

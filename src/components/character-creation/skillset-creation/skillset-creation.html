@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Skillset-Selection</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <div class="skillset-form">
+    <form class="form" text-center [formGroup]="skillsetForm" (ngSubmit)="create()" id="skillsetForm">
+      <ion-item>
+        <ion-label floating>Nombre</ion-label>
+        <ion-input type="text" formControlName="name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Tipo</ion-label>
+        <ion-input type="text" formControlName="type"></ion-input>
+      </ion-item>
+      <div formArrayName="skills">
+        <div *ngFor="let skill of skillsetForm.controls.skills.controls; let i = index" [formGroupName]="i">
+          <div class="skill-creator">
+            <div class="row">
+              <ion-item class="skill">
+                <ion-label floating>Habilidad</ion-label>
+                <ion-input type="text" formControlName="name"></ion-input>
+              </ion-item>
+              <ion-item class="type">
+                <ion-label floating>Tipo</ion-label>
+                <ion-input type="text" formControlName="type"></ion-input>
+              </ion-item>
+            </div>
+            <ion-item class="description">
+              <ion-label floating>Descripción</ion-label>
+              <ion-textarea type="text" formControlName="description"></ion-textarea>
+            </ion-item>
+            <ion-item class="amount">
+              <ion-label floating>Cant. dados</ion-label>
+              <ion-input type="number" formControlName="diceAmount"></ion-input>
+            </ion-item>
+            <ion-item class="value">
+              <ion-label floating>Valor dados</ion-label>
+              <ion-input type="number" formControlName="diceValue"></ion-input>
+            </ion-item>
+          </div>
+        </div>
+        <button ion-button round class="btn-add-skill" (click)="addSkill()">Agregar habilidad</button>
+      </div>
+    </form>
+  </div>
+</ion-content>
+<ion-fab bottom right>
+  <button ion-fab [disabled]="!skillsetForm.valid" type="submit">
+    <ion-icon name="md-checkmark"></ion-icon>
+  </button>
+</ion-fab>
+<ion-fab bottom left>
+  <button ion-fab (click)="cancel()">
+    <ion-icon name="md-close"></ion-icon>
+  </button>
+</ion-fab>

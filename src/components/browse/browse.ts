@@ -7,7 +7,6 @@ import { ModalController } from "ionic-angular";
   templateUrl: "browse.html"
 })
 export class BrowseComponent implements OnInit {
-  @Input("title") title: string;
   @Input("labels") labels: string[];
   @Input("provider") provider: Provider;
   @Input("onAdd") callbackAdd;
