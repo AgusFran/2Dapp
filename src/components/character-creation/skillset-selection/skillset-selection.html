@@ -1,1 +1,6 @@
-TEST
+<ion-header>
+    <ion-navbar>
+        <ion-title>Skillset-Selection</ion-title>
+    </ion-navbar>
+</ion-header>
+<browse [provider]="skillsetsProvider" [labels]="['value.name']" [onAdd]="addSkillset" (onSelect)="selectSkillset($event)"></browse>

@@ -27,7 +27,9 @@ import { MatchesProvider } from "../providers/matches/matches";
 import { CharacterCreationComponent } from "../components/character-creation/character-creation";
 import { CharacterCreatorPage } from "../components/character-creation/character-creator/character-creator";
 import { SkillsetSelectionPage } from "../components/character-creation/skillset-selection/skillset-selection";
+import { SkillsetCreationComponent } from "../components/character-creation/skillset-creation/skillset-creation";
 import { BrowseComponent } from "../components/browse/browse";
+import { SkillsetsProvider } from '../providers/skillsets/skillsets';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBlLiEXeRcMbW-azXNTkAh_TfC659HCQKU",
@@ -51,6 +53,7 @@ const firebaseConfig = {
     CharacterCreationComponent,
     CharacterCreatorPage,
     SkillsetSelectionPage,
+    SkillsetCreationComponent,
     BrowseComponent
   ],
   imports: [
@@ -75,6 +78,7 @@ const firebaseConfig = {
     CharacterCreationComponent,
     CharacterCreatorPage,
     SkillsetSelectionPage,
+    SkillsetCreationComponent,
     BrowseComponent
   ],
   providers: [
@@ -87,7 +91,8 @@ const firebaseConfig = {
     SessionProvider,
     CharactersProvider,
     ItemsProvider,
-    MatchesProvider
+    MatchesProvider,
+    SkillsetsProvider
   ]
 })
 export class AppModule {}
