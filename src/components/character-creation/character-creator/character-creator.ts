@@ -18,8 +18,11 @@ export class CharacterCreatorPage {
       genre: new FormControl("", [Validators.required, Validators.pattern(this.textPattern)]),
       deity: new FormControl("", [Validators.required, Validators.pattern(this.textPattern)]),
       alignment: new FormControl("", [Validators.required, Validators.pattern(this.textPattern)]),
-      race: new FormControl("", [Validators.required, Validators.pattern(this.textPattern)]),
-      skillset: new FormControl("", [Validators.required, Validators.pattern(this.textPattern)])
+      race: new FormControl({ value: "", disabled: true }, [Validators.required, Validators.pattern(this.textPattern)]),
+      skillset: new FormControl({ value: "", disabled: true }, [
+        Validators.required,
+        Validators.pattern(this.textPattern)
+      ])
     });
   }
 
