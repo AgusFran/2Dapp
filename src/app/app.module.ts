@@ -13,6 +13,7 @@ import { MatchSelectionPage } from "../pages/match-selection/match-selection";
 import { MatchPage } from "../pages/match/match";
 import { MainPage } from "../pages/main/main";
 import { ItemsPage } from "../pages/items/items";
+import { MatchDMPage } from "../pages/matchdmpage/matchdmpage";
 
 import { HttpModule } from "@angular/http";
 import { AngularFireDatabaseModule } from "angularfire2/database";
@@ -28,6 +29,7 @@ import { CharacterCreationComponent } from "../components/character-creation/cha
 import { CharacterCreatorPage } from "../components/character-creation/character-creator/character-creator";
 import { SkillsetSelectionPage } from "../components/character-creation/skillset-selection/skillset-selection";
 import { BrowseComponent } from "../components/browse/browse";
+import { ItemsGiverComponent } from "../components/items-giver/items-giver";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBlLiEXeRcMbW-azXNTkAh_TfC659HCQKU",
@@ -47,10 +49,12 @@ const firebaseConfig = {
     MatchPage,
     MatchSelectionPage,
     ItemsPage,
+    ItemsGiverComponent,
     MainPage,
     CharacterCreationComponent,
     CharacterCreatorPage,
     SkillsetSelectionPage,
+    MatchDMPage,
     BrowseComponent
   ],
   imports: [
@@ -71,10 +75,12 @@ const firebaseConfig = {
     MatchPage,
     MatchSelectionPage,
     ItemsPage,
+    ItemsGiverComponent,
     MainPage,
     CharacterCreationComponent,
     CharacterCreatorPage,
     SkillsetSelectionPage,
+    MatchDMPage,
     BrowseComponent
   ],
   providers: [

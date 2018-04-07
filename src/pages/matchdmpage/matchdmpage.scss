@@ -1,0 +1,11 @@
+page-matchdmpage {
+  .button-container {
+    text-align: center;
+    width: 100%;
+    > button {
+      display: inline-block;
+      min-width: 10%;
+      margin: 0 8px;
+    }
+  }
+}

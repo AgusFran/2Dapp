@@ -1,0 +1,34 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <h2>Personajes</h2>
+  <ion-list style="height: 30%">
+    <ion-item *ngFor="let character of  match.characters" (click)="editCharacter(character.key)"> {{character.value.name}}
+    </ion-item>
+  </ion-list>
+  <h2>Enemigos</h2>
+  <ion-list style="height: 30%">
+    <ion-item-sliding *ngFor="let monster of match.monsters">
+      <ion-item (click)="editMonster(monster.key)">
+        {{ monster.value.name }} {{ monster.value.hp }}
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="danger" icon-only (click)="removeMonster(monster.key)">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  <div class="button-container">
+    <button ion-button padding round (click)="giveItems()">Dar items</button>
+    <button ion-button padding round (click)="giveStats()">Dar stats</button>
+    <button ion-button padding round (click)="addMonster()">Agregar enemigo</button>
+  </div>
+</ion-content>

@@ -8,6 +8,7 @@ import { Toast } from "../../classes/toast";
 
 import { MatchSelectionPage } from "../match-selection/match-selection";
 import { CharacterSelectionPage } from "../character-selection/character-selection";
+import { MatchDMPage } from "../matchdmpage/matchdmpage";
 
 @Component({
   selector: "page-match",
@@ -26,8 +27,7 @@ export class MatchPage {
     this.match = new Match("", "");
     this.matchesProvider.getCurrentMatch().subscribe(match => {
       this.match = Match.newMatch(match);
-      console.log(this.match);
-
+      this.isMatchDM();
       this.hasCharacterSelected();
     });
   }
@@ -37,9 +37,15 @@ export class MatchPage {
 
   viewCharacter(characterKey: string) {}
 
+  isMatchDM(): boolean {
+    return this.match.dm == SessionProvider.getCurrentUserKey();
+  }
+  navDMPage() {
+    this.navCtrl.push(MatchDMPage);
+  }
   hasCharacterSelected() {
     let flag: boolean = false;
-    if (SessionProvider.getCurrentCharacterKey() || this.match.dm == SessionProvider.getCurrentUserKey()) {
+    if (SessionProvider.getCurrentCharacterKey() || this.isMatchDM()) {
       flag = true;
     } else {
       this.match.characters.forEach(character => {
