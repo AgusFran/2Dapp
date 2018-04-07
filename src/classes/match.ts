@@ -13,6 +13,7 @@ export class Match {
   constructor(name: string, dm: string) {
     this.name = name;
     this.dm = dm;
+    this.characters = [];
   }
 
   addCharacter(character: any) {
@@ -20,10 +21,12 @@ export class Match {
   }
 
   static newMatch(match: any) {
-    let characters = [];
-    let newMatch: Match = new Match(match.dm, match.name);
-    Object.entries(match.characters.value).forEach(([key, value]) => characters.push({ key: key, value: value }));
-    newMatch.characters = characters;
+    let newMatch: Match = new Match(match.name, match.dm);
+    if (match.characters.value) {
+      Object.entries(match.characters.value).forEach(([characterKey, characterValue]) =>
+        newMatch.characters.push({ key: characterKey, value: characterValue })
+      );
+    }
 
     return newMatch;
   }

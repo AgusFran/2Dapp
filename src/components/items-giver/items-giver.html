@@ -1,0 +1,28 @@
+<!-- Generated template for the ItemsGiverComponent component -->
+
+<div style="height: 100%">
+  <ion-content>
+    <div style="height: 100%">
+      <div class="lists-container">
+        <ion-list class="left-side">
+          <ion-item *ngFor="let character of characters">
+            <ion-checkbox (ionChange)="addCharacterSelected()" type="checkbox" name="{{character.key}}" id="">
+              {{character.value.name}}
+            </ion-checkbox>
+          </ion-item>
+        </ion-list>
+        <ion-list class="right-side">
+          <ion-item *ngFor="let item of items">
+            <ion-checkbox (ionChange)="addItemSelected()" type="checkbox" name="{{item.key}}" id="">
+              {{item.value.name}}
+            </ion-checkbox>
+          </ion-item>
+        </ion-list>
+        <ion-item class="footer">
+          <ion-input type="number" placeholder="Cantidad"></ion-input>
+        </ion-item>
+        <button ion-button padding full class="confirm" style="margin: 0" (click)="commit()">Confirmar</button>
+      </div>
+    </div>
+  </ion-content>
+</div>
