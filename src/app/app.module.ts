@@ -31,7 +31,10 @@ import { SkillsetSelectionPage } from "../components/character-creation/skillset
 import { SkillsetCreationComponent } from "../components/character-creation/skillset-creation/skillset-creation";
 import { BrowseComponent } from "../components/browse/browse";
 import { ItemsGiverComponent } from "../components/items-giver/items-giver";
-import { SkillsetsProvider } from '../providers/skillsets/skillsets';
+import { SkillsetsProvider } from "../providers/skillsets/skillsets";
+import { RacesPage } from "../pages/races/races";
+import { RacesProvider } from "../providers/races/races";
+import { CharactersPage } from "../pages/characters/characters";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBlLiEXeRcMbW-azXNTkAh_TfC659HCQKU",
@@ -47,6 +50,7 @@ const firebaseConfig = {
     MyApp,
     HomePage,
     CharacterSelectionPage,
+    CharactersPage,
     CharacterPage,
     MatchPage,
     MatchSelectionPage,
@@ -57,6 +61,7 @@ const firebaseConfig = {
     CharacterCreatorPage,
     SkillsetSelectionPage,
     SkillsetCreationComponent,
+    RacesPage,
     MatchDMPage,
     BrowseComponent
   ],
@@ -74,6 +79,7 @@ const firebaseConfig = {
     MyApp,
     HomePage,
     CharacterSelectionPage,
+    CharactersPage,
     CharacterPage,
     MatchPage,
     MatchSelectionPage,
@@ -83,6 +89,7 @@ const firebaseConfig = {
     CharacterCreationComponent,
     CharacterCreatorPage,
     SkillsetSelectionPage,
+    RacesPage,
     MatchDMPage,
     SkillsetCreationComponent,
     BrowseComponent
@@ -98,7 +105,8 @@ const firebaseConfig = {
     CharactersProvider,
     ItemsProvider,
     MatchesProvider,
-    SkillsetsProvider
+    SkillsetsProvider,
+    RacesProvider
   ]
 })
 export class AppModule {}

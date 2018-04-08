@@ -1,6 +1,6 @@
 import { Input, OnInit, Component, Output, EventEmitter } from "@angular/core";
 import { Provider } from "../../classes/provider";
-import { ModalController } from "ionic-angular";
+import { ModalController, AlertController, ToastController } from "ionic-angular";
 
 @Component({
   selector: "browse",
@@ -15,7 +15,11 @@ export class BrowseComponent implements OnInit {
 
   private elements = [];
 
-  constructor(public modalCtrl: ModalController) {}
+  constructor(
+    public modalCtrl: ModalController,
+    public alertCtrl: AlertController,
+    public toastCtrl: ToastController
+  ) {}
 
   ngOnInit(): void {
     this.provider.getAll().subscribe(elements => (this.elements = elements));
