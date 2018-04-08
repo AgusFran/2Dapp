@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { NavController, NavParams, ModalController } from "ionic-angular";
+import { NavController, NavParams, ModalController, AlertController, ToastController } from "ionic-angular";
 import { Match } from "../../classes/match";
 import { MainPage } from "../main/main";
 import { CharactersPage } from "../characters/characters";
@@ -19,9 +19,11 @@ export class CharacterSelectionPage extends CharactersPage {
     public modalCtrl: ModalController,
     public charactersProvider: CharactersProvider,
     public navParams: NavParams,
+    public alertCtrl: AlertController,
+    public toastCtrl: ToastController,
     public matchesProvider: MatchesProvider
   ) {
-    super(navCtrl, modalCtrl, charactersProvider);
+    super(navCtrl, modalCtrl, charactersProvider, alertCtrl, toastCtrl);
   }
   //Override
   selectCharacter(data: any) {

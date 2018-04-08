@@ -3,6 +3,8 @@ import { IonicPage, NavController } from "ionic-angular";
 import { CharacterSelectionPage } from "../character-selection/character-selection";
 import { MatchSelectionPage } from "../match-selection/match-selection";
 import { ItemsPage } from "../items/items";
+import { RacesPage } from "../races/races";
+import { CharactersPage } from "../characters/characters";
 
 @Component({
   selector: "page-main",
@@ -20,8 +22,12 @@ export class MainPage {
       name: "Items"
     },
     {
-      url: CharacterSelectionPage,
+      url: CharactersPage,
       name: "Personajes"
+    },
+    {
+      url: RacesPage,
+      name: "Razas"
     }
   ];
 

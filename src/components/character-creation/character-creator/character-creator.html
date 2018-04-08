@@ -7,7 +7,7 @@
             </ion-item>
             <ion-item>
                 <ion-label floating>Género</ion-label>
-                <ion-input type="text" formControlName="genre"></ion-input>
+                <ion-input type="text" formControlName="gender"></ion-input>
             </ion-item>
             <ion-item>
                 <ion-label floating>Deidad</ion-label>
@@ -36,7 +36,7 @@
     </div>
 </ion-content>
 <ion-fab bottom right>
-    <button ion-fab [disabled]="!characterForm.valid" type="submit">
+    <button ion-fab [disabled]="(!characterForm.valid && !beenSubmited)" type="submit" (click)="submit()">
         <ion-icon name="md-checkmark"></ion-icon>
     </button>
 </ion-fab>

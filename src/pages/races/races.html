@@ -1,0 +1,6 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Race creation</ion-title>
+  </ion-navbar>
+</ion-header>
+<browse [provider]="provider" [labels]="['value.name', 'value.description', 'value.talent']" [onAdd]="addRace" (onSelect)="deleteRace($event)"></browse>
