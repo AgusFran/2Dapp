@@ -96,7 +96,6 @@ export class MatchDMPage {
   //opens a modal with the character, and a view of the item page, where the onclick of the list item is a confirm.
   giveItems() {
     let items: any[] = [];
-    console.log("ma faalaag");
     let suscription = this.itemsProvider.getAll().subscribe(data => {
       console.log(data);
       items = data;

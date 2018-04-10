@@ -1,25 +1,34 @@
-<!-- Generated template for the ItemsGiverComponent component -->
-
+<ion-header>
+  <ion-navbar>
+    <ion-title>Asignación de items</ion-title>
+  </ion-navbar>
+</ion-header>
 <div style="height: 100%">
   <ion-content>
     <div style="height: 100%">
       <div class="lists-container">
         <ion-list class="left-side">
-          <ion-item *ngFor="let character of characters">
-            <ion-checkbox (ionChange)="addCharacterSelected()" type="checkbox" id="">
-              {{character.value.name}}
+          <ion-label text-center>
+            <h1>Personajes</h1>
+          </ion-label>
+          <ion-item *ngFor="let character of characters; let i = index">
+            <ion-checkbox [(ngModel)]="checkedCharacters[i]" type="checkbox" id="">
             </ion-checkbox>
+            <ion-label>{{character.value.name}}</ion-label>
           </ion-item>
         </ion-list>
         <ion-list class="right-side">
-          <ion-item *ngFor="let item of items">
-            <ion-checkbox (ionChange)="addItemSelected()" type="checkbox" id="">
-              {{item.value.name}}
+          <ion-label text-center>
+            <h1>Items</h1>
+          </ion-label>
+          <ion-item *ngFor="let item of items; let i = index">
+            <ion-checkbox [(ngModel)]="checkedItems[i]" type="checkbox" id="">
             </ion-checkbox>
+            <ion-label>{{item.value.name}}</ion-label>
           </ion-item>
         </ion-list>
         <ion-item class="footer">
-          <ion-input type="number" placeholder="Cantidad"></ion-input>
+          <ion-input text-center type="number" placeholder="Cantidad" [(ngModel)]="amount"></ion-input>
         </ion-item>
         <button ion-button padding full class="confirm" style="margin: 0" (click)="commit()">Confirmar</button>
       </div>
