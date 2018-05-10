@@ -5,9 +5,9 @@ export class Skillset {
   private type: string;
   private skills: Skill[];
 
-  constructor(name: string, type: string) {
+  constructor(name: string, type: string, skills: Skill[]) {
     this.name = name;
     this.type = type;
-    this.skills = [];
+    this.skills = skills;
   }
 }

@@ -2,6 +2,8 @@ import { Component } from "@angular/core";
 import { NavController } from "ionic-angular";
 import { FormGroup, FormControl, Validators, FormArray, FormBuilder } from "@angular/forms";
 import { SkillsetsProvider } from "../../../providers/skillsets/skillsets";
+import { Skill } from "../../../classes/skill";
+import { Skillset } from "../../../classes/skillset";
 
 @Component({
   selector: "skillset-creation",
@@ -35,7 +37,28 @@ export class SkillsetCreationComponent {
     );
   }
 
-  create() {}
+  create() {
+    let skills: Skill[] = [];
+    (<FormArray>this.skillsetForm.controls["skills"]).controls.forEach(skill => {
+      let controls = (<FormGroup>skill).controls;
+      skills.push(
+        new Skill(
+          controls["name"].value,
+          controls["type"].value,
+          controls["description"].value,
+          controls["diceValue"].value,
+          controls["diceAmount"].value
+        )
+      );
+    });
+    let skillset: Skillset = new Skillset(
+      this.skillsetForm.controls["name"].value,
+      this.skillsetForm.controls["type"].value,
+      skills
+    );
+    this.skillsetProvider.addItem(skillset);
+    this.navCtrl.pop();
+  }
 
   cancel() {
     this.navCtrl.pop();
