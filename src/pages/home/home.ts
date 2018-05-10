@@ -30,6 +30,10 @@ export class HomePage {
     });
   }
 
+  ionViewDidLoad() {
+    SessionProvider.setCurrentUserKey(undefined);
+  }
+
   login() {
     let user = this.getUser();
     if (user && user.value.password == this.getControlValue("password")) {

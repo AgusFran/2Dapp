@@ -14,7 +14,7 @@
     <ion-item *ngIf="!hasCharacter" (click)=selectCharacter()>
       <button ion-button padding round>Seleccionar personaje!</button>
     </ion-item>
-    <ion-item *ngIf="isMatchDM" (click)=navDMPage()>
+    <ion-item *ngIf="isMatchDM()" (click)=navDMPage()>
       <button ion-button padding round>Administrar partida</button>
     </ion-item>
   </ion-list>
