@@ -27,7 +27,6 @@ export class MatchSelectionPage {
   }
   selectMatch(key: string) {
     SessionProvider.setCurrentMatchKey(key);
-    console.log(key);
     this.navCtrl.push(MatchPage);
   }
   createMatch() {

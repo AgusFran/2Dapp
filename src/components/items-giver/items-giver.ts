@@ -1,5 +1,8 @@
 import { Component } from "@angular/core";
 import { ModalController, NavParams, NavController, ViewController } from "ionic-angular";
+import { Character } from "../../classes/character";
+import { Item } from "../../classes/items";
+import { ItemsProvider } from "../../providers/items/items";
 
 /**
  * Generated class for the ItemsGiverComponent component.
@@ -12,91 +15,46 @@ import { ModalController, NavParams, NavController, ViewController } from "ionic
   templateUrl: "items-giver.html"
 })
 export class ItemsGiverComponent {
-  private items: any[] = [];
-  private characters: any[] = [];
+  private items: Item[] = [];
+  private characters: Character[] = [];
+
+  private checkedCharacters: any[] = [];
+  private checkedItems: any[] = [];
+  private amount: number = 1;
 
   constructor(
     public navCtrl: NavController,
     public modalCtrl: ModalController,
     public navParams: NavParams,
-    public viewCtrl: ViewController
+    public viewCtrl: ViewController,
+    public itemsProvider: ItemsProvider
   ) {
     this.characters = navParams.get("characters");
     this.items = navParams.get("items");
-
-    console.log("maflag");
-
-    console.log(this.characters);
-
-    console.log(this.items);
-
-    console.log("Hello ItemsGiverComponent Component");
   }
-
-  addItemSelected() {}
-  addCharacterSelected() {}
 
   commit() {
-    //add the items to the characters and dismiss
+    console.log(this.checkedCharacters);
+    console.log(this.checkedItems);
+    console.log(this.amount);
+    let data: any[] = [];
+
+    for (let i = 0; i < this.checkedCharacters.length; i++) {
+      if (this.checkedCharacters[i]) {
+        for (let j = 0; j < this.checkedItems.length; j++) {
+          if (this.checkedItems[j]) {
+            data.push({
+              character: this.characters[i],
+              item: this.items[j],
+              amount: this.amount
+            });
+          }
+        }
+      }
+    }
+
+    this.itemsProvider.giveItems(data);
+
     this.viewCtrl.dismiss();
   }
-
-  // openCharacterSelectionAlert() {
-  //   let alert = this.alertCtrl.create();
-  //   alert.setTitle("Seleccionar personajes");
-
-  //   this.match.characters.forEach(character => {
-  //     alert.addInput({
-  //       type: "checkbox",
-  //       label: character.value.name,
-  //       value: character.key
-  //     });
-  //   });
-  //   alert.addButton("Cancel");
-  //   alert.addButton({
-  //     text: "Okay",
-  //     handler: data => {
-  //       this.selectedCharactersKeys = data;
-  //       this.openItemSelectionAlert();
-  //     }
-  //   });
-  //   alert.present();
-  // }
-
-  // openItemSelectionAlert() {
-  //   let items: any[] = [];
-  //   console.log("ma faalaag");
-  //   let suscription = this.itemsProvider.getAll().subscribe(data => {
-  //     console.log(data);
-  //     items = data;
-  //     let alert = this.alertCtrl.create();
-  //     alert.setTitle("Dar items");
-
-  //     items.forEach(item => {
-  //       console.log("maflag", item);
-
-  //       alert.addInput({
-  //         type: "checkbox",
-  //         label: item.value.name,
-  //         value: item.key
-  //       });
-  //     });
-
-  //     alert.addInput({
-  //       type: "number",
-  //       label: "asd"
-  //     });
-
-  //     alert.addButton("Cancel");
-  //     alert.addButton({
-  //       text: "Okay",
-  //       handler: data => {
-  //         console.log(data);
-  //         this.addItems(data, this.selectedCharactersKeys);
-  //       }
-  //     });
-  //     alert.present();
-  //     suscription.unsubscribe();
-  //   });
-  // }
 }

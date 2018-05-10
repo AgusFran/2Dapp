@@ -37,7 +37,7 @@ export class CharactersPage {
           text: "Eliminar",
           handler: data => {
             this.provider.removeItem(character.key);
-            Toast.show(`Se eliminó la raza "${character.value.name}"`, this.toastCtrl);
+            Toast.show(`Se eliminó el personaje "${character.value.name}"`, this.toastCtrl);
           }
         }
       ]

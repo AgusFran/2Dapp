@@ -21,8 +21,8 @@ export class Match {
   }
 
   static newMatch(match: any) {
-    let newMatch: Match = new Match(match.name, match.dm);
-    if (match.characters.value) {
+    let newMatch: Match = new Match(match.name.value, match.dm.value);
+    if (match.characters && match.characters.value) {
       Object.entries(match.characters.value).forEach(([characterKey, characterValue]) =>
         newMatch.characters.push({ key: characterKey, value: characterValue })
       );
