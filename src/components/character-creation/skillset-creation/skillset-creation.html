@@ -41,13 +41,13 @@
             </ion-item>
           </div>
         </div>
-        <button ion-button round class="btn-add-skill" (click)="addSkill()">Agregar habilidad</button>
+        <button ion-button round type="button" class="btn-add-skill" (click)="addSkill()">Agregar habilidad</button>
       </div>
     </form>
   </div>
 </ion-content>
 <ion-fab bottom right>
-  <button ion-fab [disabled]="!skillsetForm.valid" type="submit">
+  <button ion-fab [disabled]="!skillsetForm.valid" form="skillsetForm" type="submit">
     <ion-icon name="md-checkmark"></ion-icon>
   </button>
 </ion-fab>

@@ -1,3 +1,33 @@
 skillset-creation {
-
+  overflow-y: auto;
+  .form ion-item.selector {
+    cursor: text;
+    * {
+      cursor: text;
+    }
+  }
+  .form {
+    .skill-creator {
+      .skill,
+      .type {
+        display: inline-block;
+        white-space: nowrap;
+      }
+      .row {
+        display: block;
+        white-space: nowrap;
+      }
+      .skill {
+        width: calc(75% - 4px);
+      }
+      .type {
+        width: 25%;
+      }
+    }
+    .btn-add-skill {
+      margin-top: 24px;
+      margin-bottom: 0;
+      display: inline-block;
+    }
+  }
 }
