@@ -34,7 +34,7 @@ export class CharacterSelectionPage extends CharactersPage {
         userkey: SessionProvider.getCurrentUserKey()
       }
     };
-    this.matchesProvider.addCharacter(this.data.value);
+    this.matchesProvider.addCharacter(this.data);
     console.log(data);
     SessionProvider.setCurrentCharacterKey(this.data.key);
     this.navCtrl.pop();

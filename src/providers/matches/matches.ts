@@ -17,6 +17,8 @@ export class MatchesProvider extends BaseProvider<Match> {
     return super.getSinDown(`${SessionProvider.getCurrentMatchKey()}/characters`);
   }
   addCharacter(data) {
-    this.angularFirebase.list(`/${this.service}/${SessionProvider.getCurrentMatchKey()}/characters/`).push(data);
+    this.angularFirebase
+      .list(`/${this.service}/${SessionProvider.getCurrentMatchKey()}/characters/${data.key}/`)
+      .push(data.value);
   }
 }

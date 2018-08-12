@@ -20,7 +20,8 @@ export class ItemsProvider extends BaseProvider<Item> {
     data.forEach(element => {
       this.angularFirebase
         .list(`/users/${element.character.value.userkey}/characters/${element.character.key}/inventory/`)
-        .push(element.item.value);
+        .push(element.item.value.name)
+        .push(element.amount);
     });
   }
 }

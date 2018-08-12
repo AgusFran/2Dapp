@@ -24,24 +24,15 @@ export class MatchPage {
     public toastCtrl: ToastController,
     public matchesProvider: MatchesProvider
   ) {
-    // console.log("maflag constructor MatchPage");
     this.match = new Match("", "");
   }
 
   ionViewDidLoad() {
-    // console.log("maflag ionviedidload MatchPage");
     this.matchesProvider.getCurrentMatch().subscribe(match => {
-      // console.log("maflag ionviedidloadsuscribe MatchPage");
-
-      // console.log("maflag Suscribed MatchPage");
       this.match = Match.newMatch(match);
-
-      console.log(this.match);
-
       this.isMatchDM();
       this.hasCharacterSelected();
     });
-    // console.log("maflag Finished ionViewDidLoad() MatchPage");
   }
   selectCharacter() {
     this.navCtrl.push(CharacterSelectionPage);
@@ -50,13 +41,6 @@ export class MatchPage {
   viewCharacter(characterKey: string) {}
 
   isMatchDM(): boolean {
-    // console.log("Pre-Maflagismatchdm", this.match);
-    // console.log(
-    //   "maflag isMatchDM()",
-    //   this.match.dm,
-    //   SessionProvider.getCurrentUserKey(),
-    //   this.match.dm == SessionProvider.getCurrentUserKey()
-    // );
     return this.match.dm == SessionProvider.getCurrentUserKey();
   }
   navDMPage() {

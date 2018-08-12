@@ -43,6 +43,7 @@ export class ItemsGiverComponent {
       if (this.checkedCharacters[i]) {
         for (let j = 0; j < this.checkedItems.length; j++) {
           if (this.checkedItems[j]) {
+            console.log(this.characters[i]);
             data.push({
               character: this.characters[i],
               item: this.items[j],
